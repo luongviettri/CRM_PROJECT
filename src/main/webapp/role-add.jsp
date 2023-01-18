@@ -16,14 +16,12 @@
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- animation CSS -->
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet">
-    <link rel="stylesheet" href="./css/custom.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,7 +55,7 @@
             </div>
             <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
                 <li>
-                    <form roleModel="search" class="app-search hidden-xs">
+                    <form role="search" class="app-search hidden-xs">
                         <input type="text" placeholder="Search..." class="form-control">
                         <a href="">
                             <i class="fa fa-search"></i>
@@ -87,7 +85,7 @@
         <!-- /.navbar-static-side -->
     </nav>
     <!-- Left navbar-header -->
-    <div class="navbar-default sidebar" roleModel="navigation">
+    <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
             <ul class="nav" id="side-menu">
                 <li style="padding: 10px 0 0;">
@@ -130,50 +128,43 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Danh sách quyền</h4>
+                    <h4 class="page-title">Thêm mới quyền</h4>
                 </div>
-                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-                    <a href="role-add.jsp" class="btn btn-sm btn-success">Thêm mới</a>
-                </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /row -->
+            <!-- /.row -->
+            <!-- .row -->
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-2 col-12"></div>
+                <div class="col-md-8 col-xs-12">
                     <div class="white-box">
-                        <div class="table-responsive">
-                            <table class="table" id="example">
-                                <thead>
-
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên Quyền</th>
-                                    <th>Mô Tả</th>
-                                    <th>Hành Động</th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-
-                                <%--   item là tên list, var là từng phần tử trong list --%>
-                                <c:forEach items="${roles}" var="item">
-                                    <tr>
-                                        <td><c:out value="${item.getId()}"/></td>
-                                        <td><c:out value="${item.getRoleName()}"/></td>
-                                        <td><c:out value="${item.getDescription()}"/></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary">Sửa</button>
-                                            <a href="#" class="btn btn-sm btn-danger btn-xoa" id="${item.getId()}">Xóa
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-
-                                </tbody>
-                            </table>
-                        </div>
+                        <form id="myForm"
+                              class="form-horizontal form-material">
+                            <div class="form-group">
+                                <label class="col-md-12">Tên quyền</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Tên quyền"
+                                           class="form-control form-control-line" name="tenQuyen"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Mô tả</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Mô tả" name="moTa"
+                                           class="form-control form-control-line"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-success"
+                                    >Add Role
+                                    </button>
+                                    <a href="http://localhost:8080/roles" class="btn btn-primary">Quay lại</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <div class="col-md-2 col-12"></div>
             </div>
             <!-- /.row -->
         </div>
@@ -191,18 +182,11 @@
 <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
 <script src="js/jquery.slimscroll.js"></script>
-<script src="js/jquery.dataTables.js"></script>
 <!--Wave Effects -->
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-</script>
-<script src="js/role.js"></script>
+<script src="js/addRole.js"></script>
 </body>
-
 
 </html>

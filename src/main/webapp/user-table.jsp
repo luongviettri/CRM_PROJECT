@@ -57,7 +57,7 @@
             </div>
             <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
                 <li>
-                    <form roleModel="search" class="app-search hidden-xs">
+                    <form role="search" class="app-search hidden-xs">
                         <input type="text" placeholder="Search..." class="form-control">
                         <a href="">
                             <i class="fa fa-search"></i>
@@ -87,7 +87,7 @@
         <!-- /.navbar-static-side -->
     </nav>
     <!-- Left navbar-header -->
-    <div class="navbar-default sidebar" roleModel="navigation">
+    <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
             <ul class="nav" id="side-menu">
                 <li style="padding: 10px 0 0;">
@@ -99,9 +99,8 @@
                                                                      aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                 </li>
                 <li>
-                    <a href="http://localhost:8080/roles" class="waves-effect"><i class="fa fa-modx fa-fw"
-                                                                                  aria-hidden="true"></i><span
-                            class="hide-menu">Quyền</span></a>
+                    <a href="role-table.html" class="waves-effect"><i class="fa fa-modx fa-fw"
+                                                                      aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                 </li>
                 <li>
                     <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -130,10 +129,10 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Danh sách quyền</h4>
+                    <h4 class="page-title">Danh sách thành viên</h4>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-                    <a href="role-add.jsp" class="btn btn-sm btn-success">Thêm mới</a>
+                    <a href="user-add.jsp" class="btn btn-sm btn-success">Thêm mới</a>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -144,30 +143,16 @@
                         <div class="table-responsive">
                             <table class="table" id="example">
                                 <thead>
-
                                 <tr>
                                     <th>STT</th>
-                                    <th>Tên Quyền</th>
-                                    <th>Mô Tả</th>
-                                    <th>Hành Động</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>#</th>
                                 </tr>
                                 </thead>
-
-                                <tbody>
-
-                                <%--   item là tên list, var là từng phần tử trong list --%>
-                                <c:forEach items="${roles}" var="item">
-                                    <tr>
-                                        <td><c:out value="${item.getId()}"/></td>
-                                        <td><c:out value="${item.getRoleName()}"/></td>
-                                        <td><c:out value="${item.getDescription()}"/></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary">Sửa</button>
-                                            <a href="#" class="btn btn-sm btn-danger btn-xoa" id="${item.getId()}">Xóa
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
+                                <tbody id="myTbody">
 
                                 </tbody>
                             </table>
@@ -197,12 +182,13 @@
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
+    // $(document).ready(function () {
+    //     $('#example').DataTable();
+    // });
 </script>
-<script src="js/role.js"></script>
-</body>
 
+<script src="js/getAllUsers.js"></script>
+
+</body>
 
 </html>
